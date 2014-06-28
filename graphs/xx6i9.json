@@ -1,0 +1,285 @@
+{
+    "properties": {
+        "name": "Arduino Test",
+        "id": "xx6i9",
+        "project": "cannonerd-arduino-test",
+        "environment": {
+            "type": "microflo"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "Timer_ycecy": {
+            "component": "Timer",
+            "metadata": {
+                "label": "Timer",
+                "x": -2052,
+                "y": -828
+            }
+        },
+        "AnalogRead_d16yi": {
+            "component": "AnalogRead",
+            "metadata": {
+                "label": "AnalogRead",
+                "x": -1944,
+                "y": -828
+            }
+        },
+        "MapLinear_6wet3": {
+            "component": "MapLinear",
+            "metadata": {
+                "label": "MapLinear",
+                "x": -1800,
+                "y": -828
+            }
+        },
+        "PwmWrite_jhkkb": {
+            "component": "PwmWrite",
+            "metadata": {
+                "label": "PwmWrite",
+                "x": -1512,
+                "y": -864
+            }
+        },
+        "Route_457l2": {
+            "component": "Route",
+            "metadata": {
+                "label": "Route",
+                "x": -1620,
+                "y": -864
+            }
+        },
+        "MapLinear_55tnh": {
+            "component": "MapLinear",
+            "metadata": {
+                "label": "MapLinear",
+                "x": -1692,
+                "y": -972
+            }
+        },
+        "DigitalRead_vn7yl": {
+            "component": "DigitalRead",
+            "metadata": {
+                "label": "DigitalRead",
+                "x": -1908,
+                "y": -1008
+            }
+        },
+        "Timer_1pxro": {
+            "component": "Timer",
+            "metadata": {
+                "label": "Timer",
+                "x": -2016,
+                "y": -972
+            }
+        },
+        "BoolToInt_2jgdn": {
+            "component": "BoolToInt",
+            "metadata": {
+                "label": "BoolToInt",
+                "x": -1800,
+                "y": -1008
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "AnalogRead_d16yi",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "MapLinear_6wet3",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "Timer_ycecy",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "AnalogRead_d16yi",
+                "port": "trigger"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "MapLinear_6wet3",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Route_457l2",
+                "port": "in2"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "Route_457l2",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "PwmWrite_jhkkb",
+                "port": "dutycycle"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "MapLinear_55tnh",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Route_457l2",
+                "port": "port"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "Timer_1pxro",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "DigitalRead_vn7yl",
+                "port": "trigger"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "DigitalRead_vn7yl",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "BoolToInt_2jgdn",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "BoolToInt_2jgdn",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "MapLinear_55tnh",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "10",
+            "tgt": {
+                "process": "Timer_ycecy",
+                "port": "interval"
+            }
+        },
+        {
+            "data": "0",
+            "tgt": {
+                "process": "MapLinear_6wet3",
+                "port": "inmin"
+            }
+        },
+        {
+            "data": "0",
+            "tgt": {
+                "process": "MapLinear_6wet3",
+                "port": "outmin"
+            }
+        },
+        {
+            "data": "11",
+            "tgt": {
+                "process": "PwmWrite_jhkkb",
+                "port": "pin"
+            }
+        },
+        {
+            "data": "0",
+            "tgt": {
+                "process": "AnalogRead_d16yi",
+                "port": "pin"
+            }
+        },
+        {
+            "data": "0",
+            "tgt": {
+                "process": "Route_457l2",
+                "port": "in1"
+            }
+        },
+        {
+            "data": "1",
+            "tgt": {
+                "process": "MapLinear_55tnh",
+                "port": "outmin"
+            }
+        },
+        {
+            "data": "2",
+            "tgt": {
+                "process": "MapLinear_55tnh",
+                "port": "outmax"
+            }
+        },
+        {
+            "data": "2",
+            "tgt": {
+                "process": "DigitalRead_vn7yl",
+                "port": "pin"
+            }
+        },
+        {
+            "data": "0",
+            "tgt": {
+                "process": "MapLinear_55tnh",
+                "port": "inmin"
+            }
+        },
+        {
+            "data": "1",
+            "tgt": {
+                "process": "MapLinear_55tnh",
+                "port": "inmax"
+            }
+        },
+        {
+            "data": "10",
+            "tgt": {
+                "process": "Timer_1pxro",
+                "port": "interval"
+            }
+        },
+        {
+            "data": "1024",
+            "tgt": {
+                "process": "MapLinear_6wet3",
+                "port": "inmax"
+            }
+        },
+        {
+            "data": "100",
+            "tgt": {
+                "process": "MapLinear_6wet3",
+                "port": "outmax"
+            }
+        }
+    ]
+}
